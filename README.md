@@ -1,12 +1,12 @@
 # IKEv2 VPN Server on Docker
 
-Recipe to build [`nebukad/ikev2-vpn-alpine`](https://registry.hub.docker.com/u/nebukad/ikev2-vpn-alpine/) Docker image. Fork from [`gaomd/ikev2-vpn-server`](https://hub.docker.com/r/gaomd/ikev2-vpn-server/)
+Recipe to build [`billimek/ikev2-vpn-server`](https://registry.hub.docker.com/u/billimek/ikev2-vpn-server/) Docker image. Fork from [`gaomd/ikev2-vpn-server`](https://hub.docker.com/r/gaomd/ikev2-vpn-server/) and [`Nebukad93/ikev2-vpn-server`](https://github.com/Nebukad93/ikev2-vpn-server)
 
 ## Usage
 
 ### 1. Start the IKEv2 VPN Server
 
-    docker run --cap-add=NET_ADMIN -d --name vpn-server --restart=always -p 500:500/udp -p 4500:4500/udp -e "HOST=<SERVER_IP>OR<FQDN>" -e "HOSTNAME=<SERVER_NAME> nebukad/ikev2-vpn-server
+    docker run --cap-add=NET_ADMIN -d --name vpn-server --restart=always -p 500:500/udp -p 4500:4500/udp -e "HOST=<SERVER_IP>OR<FQDN>" -e "HOSTNAME=<SERVER_NAME> -e "EXCLUDE_SSID=myHomeWifi" billimek/ikev2-vpn-server
 
 ### 2. Generate the .mobileconfig (for iOS / macOS) to the current path
 
@@ -26,7 +26,7 @@ Upon container creation, a *shared secret* was generated for authentication purp
 
 ## License
 
-Copyright (c) 2017 Mengdi Gao, Nebukad93,  This software is licensed under the [MIT License](LICENSE).
+Copyright (c) 2017 Mengdi Gao, Nebukad93, Jeff Billimek.  This software is licensed under the [MIT License](LICENSE).
 
 ---
 
